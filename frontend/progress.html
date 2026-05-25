@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Progress Tracking - AI SkillAnalizer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <h2>AI SkillAnalizer</h2>
+    <a href="dashboard.html">Dashboard</a>
+  </nav>
+
+  <div class="page-container">
+
+    <h1>Your Analytics Dashboard</h1>
+
+    <div class="progress-container">
+
+      <div class="progress-card">
+        <h3>Interview Sessions</h3>
+        <p id="sessionCount">0 Sessions Completed</p>
+      </div>
+
+      <div class="progress-card">
+        <h3>Average Score</h3>
+        <p id="averageScore">0%</p>
+      </div>
+
+      <div class="progress-card">
+        <h3>Best Score</h3>
+        <p id="bestScore">0%</p>
+      </div>
+
+      <div class="progress-card">
+        <h3>Resume Uploads</h3>
+        <p id="resumeCount">0 Uploads</p>
+      </div>
+
+    </div>
+
+    <br /><br />
+
+    <div class="upload-box">
+      <h2>Performance Chart</h2>
+      <div id="scoreChart">
+        Loading chart...
+      </div>
+    </div>
+
+    <br /><br />
+
+    <div class="upload-box">
+      <h2>AI Performance Insight</h2>
+      <p id="performanceInsight">
+        Complete interview sessions to get insights.
+      </p>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

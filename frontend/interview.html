@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Career Interview - AI SkillAnalizer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <h2>AI SkillAnalizer</h2>
+    <a href="dashboard.html">Dashboard</a>
+  </nav>
+
+  <div class="page-container">
+    <h1>Career Based Interview Practice</h1>
+
+    <div class="question-box">
+      <label>Select Preferred Career Path</label>
+
+      <select id="careerSelect" onchange="selectCareer()">
+        <option value="">-- Choose Career --</option>
+        <option value="frontend">Frontend Developer</option>
+        <option value="backend">Backend Developer</option>
+        <option value="fullstack">Full Stack Developer</option>
+        <option value="dataanalyst">Data Analyst</option>
+        <option value="datascientist">Data Scientist</option>
+        <option value="ai">AI / ML Engineer</option>
+        <option value="cybersecurity">Cybersecurity Analyst</option>
+        <option value="cloud">Cloud Engineer</option>
+        <option value="devops">DevOps Engineer</option>
+        <option value="uiux">UI/UX Designer</option>
+      </select>
+
+      <h3 id="questionNumber" style="margin-top:30px;">Question</h3>
+
+      <p id="questionText">
+        Select a career path to start.
+      </p>
+
+      <textarea
+        id="answer"
+        placeholder="Type your answer here..."
+      ></textarea>
+
+      <button onclick="submitInterview()">Submit Answer</button>
+      <button onclick="nextQuestion()" style="margin-left:10px;">Next Question</button>
+
+      <div id="result"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

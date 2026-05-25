@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Admin Dashboard - AI SkillAnalizer</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav class="navbar">
+
+    <h2>Admin Dashboard</h2>
+
+    <div style="display:flex; gap:15px; align-items:center;">
+
+      <a href="dashboard.html">User Dashboard</a>
+
+      <button onclick="logout()">Logout</button>
+
+    </div>
+
+  </nav>
+
+  <!-- MAIN CONTENT -->
+
+  <div class="page-container">
+
+    <h1>Admin Control Panel</h1>
+
+    <p style="margin-bottom:40px;">
+      Monitor platform users, sessions, and overall application activity.
+    </p>
+
+    <!-- STATS -->
+
+    <div class="progress-container">
+
+      <div class="progress-card">
+
+        <h3>Total Users</h3>
+
+        <p id="totalUsers">Loading...</p>
+
+      </div>
+
+      <div class="progress-card">
+
+        <h3>Total Sessions</h3>
+
+        <p id="totalSessions">Loading...</p>
+
+      </div>
+
+      <div class="progress-card">
+
+        <h3>Admin Access</h3>
+
+        <p>Active</p>
+
+      </div>
+
+    </div>
+
+    <!-- OVERVIEW -->
+
+    <br /><br />
+
+    <div class="upload-box">
+
+      <h2>Platform Overview</h2>
+
+      <p style="margin-top:20px; line-height:1.8;">
+
+        This admin dashboard allows administrators to monitor:
+        <br /><br />
+
+        • Registered Users
+        <br />
+
+        • Interview Sessions
+        <br />
+
+        • Resume Analysis Activity
+        <br />
+
+        • Career Practice Usage
+        <br />
+
+        • Platform Growth
+
+      </p>
+
+    </div>
+
+    <!-- USERS -->
+
+    <br /><br />
+
+    <div class="upload-box">
+
+      <h2>Registered Users</h2>
+
+      <div id="usersContainer">
+
+        Loading users...
+
+      </div>
+
+    </div>
+
+    <!-- SESSIONS -->
+
+    <br /><br />
+
+    <div class="upload-box">
+
+      <h2>Interview Sessions</h2>
+
+      <div id="sessionsContainer">
+
+        Loading sessions...
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

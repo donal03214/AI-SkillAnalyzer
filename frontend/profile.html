@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Profile - AI SkillAnalizer</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <h2>AI SkillAnalizer</h2>
+
+    <div style="display:flex; gap:15px;">
+      <a href="dashboard.html">Dashboard</a>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <div class="page-container">
+
+    <h1>User Profile</h1>
+
+    <div class="upload-box">
+
+      <h2>Edit Profile Details</h2>
+
+      <br />
+
+      <input
+        type="text"
+        id="profileName"
+        placeholder="Enter your name"
+      />
+
+      <input
+        type="email"
+        id="profileEmail"
+        placeholder="Enter your email"
+      />
+
+      <button onclick="updateProfile()">
+        Update Profile
+      </button>
+
+    </div>
+
+    <br /><br />
+
+    <div class="upload-box">
+
+      <h2>Profile Photo</h2>
+
+      <br />
+
+      <input
+        type="file"
+        id="profilePhotoInput"
+        accept="image/*"
+      />
+
+      <br /><br />
+
+      <button onclick="uploadProfilePhoto()">
+        Add / Change Photo
+      </button>
+
+      <button
+        onclick="deleteProfilePhoto()"
+        style="margin-left:10px;"
+      >
+        Delete Photo
+      </button>
+
+      <br /><br />
+
+      <img
+        id="profilePreview"
+        src=""
+        alt="Profile Preview"
+        style="
+          display:none;
+          width:160px;
+          height:160px;
+          border-radius:50%;
+          object-fit:cover;
+          border:3px solid #38bdf8;
+        "
+      />
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
