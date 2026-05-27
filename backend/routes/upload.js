@@ -1,20 +1,29 @@
 const express = require("express");
 const multer = require("multer");
-const path = require("path");
-
+const AWS = require("aws-sdk");
+const multerS3 = require("multer-s3");
 const router = express.Router();
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads/");
-  },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + path.extname(file.originalname));
-  }
+// S3 config
+const s3 = new AWS.S3({
+  accessKeyId: process.env.AWS_ACCESS_KEY,
+  secretAccessKey: process.env.AWS_SECRET_KEY,
+  region: process.env.AWS_REGION
 });
 
-const upload = multer({ storage: storage });
+// Multer S3 storage
+const upload = multer({
+  storage: multerS3({
+    s3: s3,
+    bucket: process.env.S3_BUCKET,
+    acl: "public-read",
+    key: function (req, file, cb) {
+      cb(null, Date.now() + "-" + file.originalname);
+    }
+  })
+});
 
+// Route
 router.post("/resume", upload.single("resume"), (req, res) => {
   if (!req.file) {
     return res.status(400).json({
@@ -24,8 +33,7 @@ router.post("/resume", upload.single("resume"), (req, res) => {
 
   res.json({
     message: "Resume uploaded successfully",
-    filename: req.file.filename,
-    path: `/uploads/${req.file.filename}`
+    url: req.file.location   // 🔥 S3 URL
   });
 });
 

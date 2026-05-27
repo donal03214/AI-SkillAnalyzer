@@ -8,10 +8,18 @@ const sessionRoutes = require("./routes/sessions");
 const uploadRoutes = require("./routes/upload");
 const adminRoutes = require("./routes/admin");
 const userRoutes = require("./routes/users");
+const helmet = require("helmet");
+const rateLimit = require("express-rate-limit");
 
 const app = express();
 
 app.use(cors());
+app.use(helmet());
+app.use(rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100
+}));
+
 app.use(express.json());
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
