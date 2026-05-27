@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5001/api";
+const API = "";
 
 const careerQuestions = {
   frontend: [
@@ -168,7 +168,7 @@ async function submitInterview() {
   const user = JSON.parse(localStorage.getItem("user"));
 
   if (user) {
-    await fetch(`${API_URL}/sessions/create`, {
+    await fetch(`/api/sessions/create`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -189,7 +189,7 @@ async function registerUser() {
   const password = document.getElementById("registerPassword").value;
   const role = document.getElementById("registerRole").value;
 
-  const res = await fetch(`${API_URL}/auth/register`, {
+  const res = await fetch(`/api/auth/register`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ name, email, password, role })
@@ -207,7 +207,7 @@ async function loginUser() {
   const email = document.getElementById("loginEmail").value;
   const password = document.getElementById("loginPassword").value;
 
-  const res = await fetch(`${API_URL}/auth/login`, {
+  const res = await fetch(`/api/auth/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password })
@@ -236,7 +236,7 @@ async function uploadResume() {
   const formData = new FormData();
   formData.append("resume", fileInput.files[0]);
 
-  const res = await fetch(`${API_URL}/upload/resume`, {
+  const res = await fetch(`/api/upload/resume`, {
     method: "POST",
     body: formData
   });
@@ -256,7 +256,7 @@ async function loadProgress() {
 
   if (!user) return;
 
-  const res = await fetch(`${API_URL}/sessions/${user.id}`);
+  const res = await fetch(`/api/sessions/${user.id}`);
   const sessions = await res.json();
 
   const sessionCount = document.getElementById("sessionCount");
@@ -559,7 +559,7 @@ async function loadAdminStats() {
 
   try {
 
-    const res = await fetch(`${API_URL}/admin/stats`);
+    const res = await fetch(`/api/admin/stats`);
 
     const data = await res.json();
 
@@ -605,7 +605,7 @@ async function loadUsers() {
   try {
 
     const res =
-      await fetch(`${API_URL}/users`);
+      await fetch(`/api/users`);
 
     const users = await res.json();
 
@@ -675,7 +675,7 @@ async function deleteUser(userId) {
   try {
 
     const res =
-      await fetch(`${API_URL}/users/${userId}`, {
+      await fetch(`/api/users/${userId}`, {
         method: "DELETE"
       });
 
@@ -705,7 +705,7 @@ async function loadSessions() {
   }
 
   try {
-    const res = await fetch(`${API_URL}/sessions/admin/all`);
+    const res = await fetch(`/api/sessions/admin/all`);
     const sessions = await res.json();
 
     if (sessions.length === 0) {
@@ -759,7 +759,7 @@ async function deleteSession(sessionId) {
 
   if (!confirmDelete) return;
 
-  const res = await fetch(`${API_URL}/sessions/${sessionId}`, {
+  const res = await fetch(`/api/sessions/${sessionId}`, {
     method: "DELETE"
   });
 
@@ -795,7 +795,7 @@ async function updateProfile() {
   const name = document.getElementById("profileName").value;
   const email = document.getElementById("profileEmail").value;
 
-  const res = await fetch(`${API_URL}/users/${user.id}`, {
+  const res = await fetch(`/api/users/${user.id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json"
